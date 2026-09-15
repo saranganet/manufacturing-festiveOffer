@@ -1,12 +1,10 @@
 /**
- * MarTech Panthers - Ganesh Chaturthi Festive Offer
- * Manufacturing Industry Landing Page Interactivity
+ * MarTech Panthers - Ganesh Festive Season Offer
+ * Machine Tools Manufacturing Industry Landing Page Interactivity
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initPhoneSimulators();
-  initShowcaseTabs();
-  initFaqAccordion();
   initClaimForm();
   initSmoothScroll();
 });
@@ -23,7 +21,6 @@ function initPhoneSimulators() {
   const simSaveContactBtn = document.getElementById('simSaveContactBtn');
   const simToast = document.getElementById('simToast');
   const simToastText = document.getElementById('simToastText');
-  const simInfoBox = document.getElementById('simInfoBox');
 
   function showHeroToast(message, duration = 2500) {
     if (!simToast) return;
@@ -36,32 +33,37 @@ function initPhoneSimulators() {
 
   if (simCallBtn) {
     simCallBtn.addEventListener('click', () => {
-      showHeroToast('📞 Dialing MD Desk: +91 98220 12345');
+      showHeroToast('📞 Dialing Growth Consultant: +91 976 291 0165');
     });
   }
 
   if (simWhatsAppBtn) {
     simWhatsAppBtn.addEventListener('click', () => {
-      showHeroToast('💬 WhatsApp Chat Opened for RFQs');
+      showHeroToast('💬 WhatsApp Chat Initiated for Machine RFQs');
     });
   }
 
   if (simLocationBtn) {
     simLocationBtn.addEventListener('click', () => {
-      showHeroToast('📍 Google Maps: Bhosari MIDC, Pune');
+      showHeroToast('📍 Google Maps: Aundh Pune & Bhosari MIDC');
     });
   }
 
   if (simCatalogBtn) {
     simCatalogBtn.addEventListener('click', () => {
-      showHeroToast('📄 Product Catalog PDF Opened');
+      showHeroToast('📄 Machine Tools Specifications PDF Downloaded');
     });
   }
 
   if (simSaveContactBtn) {
     simSaveContactBtn.addEventListener('click', () => {
-      triggerVCardDownload('Rajesh S. Patil', 'Shri Ganesh Precision Works', '+919822012345', 'info@shriganeshprecision.com');
-      showHeroToast('✅ Saved "Rajesh Patil" to Contacts!');
+      triggerVCardDownload(
+        'Mayank Dubey',
+        'MarTech Panthers - Machine Tools Div',
+        '+919762910165',
+        'mayankd@martechpanthers.com'
+      );
+      showHeroToast('✅ Saved "Mayank Dubey" to Phone Contacts!');
     });
   }
 
@@ -99,11 +101,11 @@ function initPhoneSimulators() {
     demoCallBtn.addEventListener('click', () => {
       setDemoActiveBtn(demoCallBtn);
       demoBoxTitle.textContent = 'Direct Contacts';
-      demoBoxSub.textContent = 'Factory Lines';
+      demoBoxSub.textContent = 'Consultant Lines';
       demoBoxList.innerHTML = `
-        <li><span>📞</span> <strong>MD Direct:</strong> +91 98220 12345</li>
-        <li><span>🏭</span> <strong>Plant Dispatch:</strong> 020-2712-4589</li>
-        <li><span>✉️</span> <strong>RFQs:</strong> rfq@shriganeshprecision.com</li>
+        <li><span>📞</span> <strong>Direct Desk:</strong> +91 976 291 0165</li>
+        <li><span>🌐</span> <strong>Head Office:</strong> Shambhu Vihar, Aundh, Pune</li>
+        <li><span>✉️</span> <strong>Email:</strong> mayankd@martechpanthers.com</li>
       `;
       showDemoToast('📞 Tap-to-call connected directly!');
     });
@@ -112,12 +114,12 @@ function initPhoneSimulators() {
   if (demoWhatsAppBtn) {
     demoWhatsAppBtn.addEventListener('click', () => {
       setDemoActiveBtn(demoWhatsAppBtn);
-      demoBoxTitle.textContent = 'WhatsApp RFQ Desk';
-      demoBoxSub.textContent = 'Quick Quotes';
+      demoBoxTitle.textContent = 'WhatsApp Inquiry Desk';
+      demoBoxSub.textContent = 'Quick Response';
       demoBoxList.innerHTML = `
-        <li><span>⚡</span> <strong>Instant Reply:</strong> Drawings accepted in DWG/PDF</li>
+        <li><span>⚡</span> <strong>Live Support:</strong> +91 976 291 0165</li>
         <li><span>⏱️</span> <strong>Quote Turnaround:</strong> Within 4 working hours</li>
-        <li><span>🤝</span> <strong>Support:</strong> Engg Head: Milind Shinde</li>
+        <li><span>🤝</span> <strong>Drawing Upload:</strong> Send PDF/CAD drawings</li>
       `;
       showDemoToast('💬 WhatsApp drawing submission active');
     });
@@ -127,10 +129,10 @@ function initPhoneSimulators() {
     demoLocationBtn.addEventListener('click', () => {
       setDemoActiveBtn(demoLocationBtn);
       demoBoxTitle.textContent = 'Plant & Gate Directions';
-      demoBoxSub.textContent = 'Bhosari MIDC, Pune';
+      demoBoxSub.textContent = 'Pune & California';
       demoBoxList.innerHTML = `
-        <li><span>📍</span> <strong>Address:</strong> Plot 42/B, 'T' Block, Bhosari MIDC</li>
-        <li><span>🚛</span> <strong>Truck Access:</strong> 24-Ton Weighbridge inside</li>
+        <li><span>📍</span> <strong>Head Office:</strong> Shambhu Vihar, Aundh, Pune - 411007</li>
+        <li><span>🏢</span> <strong>Branches:</strong> Bhopal (India) & California (USA/Canada)</li>
         <li><span>🗺️</span> <strong>GPS Pin:</strong> 1-Tap Google Map Navigation</li>
       `;
       showDemoToast('📍 Google Maps GPS navigation ready');
@@ -140,12 +142,12 @@ function initPhoneSimulators() {
   if (demoCatalogBtn) {
     demoCatalogBtn.addEventListener('click', () => {
       setDemoActiveBtn(demoCatalogBtn);
-      demoBoxTitle.textContent = 'Machinery & Brochure';
+      demoBoxTitle.textContent = 'Machine Tools Catalog';
       demoBoxSub.textContent = '2026 Edition';
       demoBoxList.innerHTML = `
-        <li><span>📄</span> <strong>Catalog:</strong> 12-Page Plant Machinery PDF</li>
-        <li><span>⚙️</span> <strong>Precision:</strong> Mazak CNC, Haas 4-Axis VMC</li>
-        <li><span>🔬</span> <strong>Quality Lab:</strong> Zeiss CMM & Profile Projector</li>
+        <li><span>📄</span> <strong>Specs PDF:</strong> 16-Page Machine Tools Catalog</li>
+        <li><span>⚙️</span> <strong>Machinery:</strong> 5-Axis VMC, CNC Lathes, Wire EDM</li>
+        <li><span>🔬</span> <strong>Quality Lab:</strong> Zeiss CMM & Micron Tolerances</li>
       `;
       showDemoToast('📄 Factory catalog loaded!');
     });
@@ -153,32 +155,38 @@ function initPhoneSimulators() {
 
   if (demoSaveContactBtn) {
     demoSaveContactBtn.addEventListener('click', () => {
-      triggerVCardDownload('Rajesh S. Patil', 'Shri Ganesh Precision Works', '+919822012345', 'info@shriganeshprecision.com');
+      triggerVCardDownload(
+        'Mayank Dubey',
+        'MarTech Panthers - Machine Tools Div',
+        '+919762910165',
+        'mayankd@martechpanthers.com'
+      );
       showDemoToast('✅ VCF Contact saved to your phonebook!');
     });
   }
 }
 
 /**
- * Generates and downloads a real .vcf file for 1-tap phonebook saving
+ * Generates and downloads an authentic .vcf file for 1-tap phonebook saving
  */
 function triggerVCardDownload(name, company, phone, email) {
   const vcard = `BEGIN:VCARD
 VERSION:3.0
-N:Patil;Rajesh;S.;;
+N:Dubey;Mayank;;;
 FN:${name}
 ORG:${company}
-TITLE:Managing Director
+TITLE:Co-Founder & Growth Consultant
 TEL;TYPE=WORK,VOICE:${phone}
 EMAIL;TYPE=WORK,INTERNET:${email}
-NOTE:Manufacturing Partner - Ganesh Chaturthi Special Setup by MarTech Panthers
+URL:https://www.martechpanthers.com/MayankD
+NOTE:Machine Tools MarTech Specialist - Ganesh Festive Season Special Setup
 END:VCARD`;
 
   const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${name.replace(/\s+/g, '_')}_FactoryContact.vcf`;
+  a.download = `${name.replace(/\s+/g, '_')}_DigitalCard.vcf`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -186,63 +194,7 @@ END:VCARD`;
 }
 
 /* --------------------------------------------------------------------------
-   2. Showcase Tabs Switching (Digital Card vs LinkedIn Page)
-   -------------------------------------------------------------------------- */
-function initShowcaseTabs() {
-  const tabBtnCard = document.getElementById('tabBtnCard');
-  const tabBtnLinkedIn = document.getElementById('tabBtnLinkedIn');
-  const panelCard = document.getElementById('panelCard');
-  const panelLinkedIn = document.getElementById('panelLinkedIn');
-
-  if (!tabBtnCard || !tabBtnLinkedIn) return;
-
-  tabBtnCard.addEventListener('click', () => {
-    tabBtnCard.classList.add('active');
-    tabBtnLinkedIn.classList.remove('active');
-    panelCard.classList.add('active');
-    panelLinkedIn.classList.remove('active');
-  });
-
-  tabBtnLinkedIn.addEventListener('click', () => {
-    tabBtnLinkedIn.classList.add('active');
-    tabBtnCard.classList.remove('active');
-    panelLinkedIn.classList.add('active');
-    panelCard.classList.remove('active');
-  });
-}
-
-/* --------------------------------------------------------------------------
-   3. FAQ Accordion
-   -------------------------------------------------------------------------- */
-function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach(item => {
-    const trigger = item.querySelector('.faq-trigger');
-    if (!trigger) return;
-
-    trigger.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-
-      // Close all other items
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.classList.remove('open');
-        }
-      });
-
-      // Toggle current item
-      if (isOpen) {
-        item.classList.remove('open');
-      } else {
-        item.classList.add('open');
-      }
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   4. Claim Offer Form & Success Modal
+   2. Claim Offer Form & Success Modal
    -------------------------------------------------------------------------- */
 function initClaimForm() {
   const form = document.getElementById('festiveClaimForm');
@@ -273,9 +225,9 @@ function initClaimForm() {
 
     // Save to localStorage
     try {
-      const pastClaims = JSON.parse(localStorage.getItem('martech_festive_claims') || '[]');
+      const pastClaims = JSON.parse(localStorage.getItem('martech_machine_tools_festive_claims') || '[]');
       pastClaims.push(claimData);
-      localStorage.setItem('martech_festive_claims', JSON.stringify(pastClaims));
+      localStorage.setItem('martech_machine_tools_festive_claims', JSON.stringify(pastClaims));
     } catch (err) {
       console.warn('LocalStorage save skipped:', err);
     }
@@ -283,21 +235,23 @@ function initClaimForm() {
     // Populate modal summary
     if (claimedSummaryBox) {
       claimedSummaryBox.innerHTML = `
-        <div><strong>Factory:</strong> ${escapeHtml(companyName)}</div>
-        <div><strong>Representative:</strong> ${escapeHtml(contactPerson)}</div>
+        <div><strong>Company:</strong> ${escapeHtml(companyName)}</div>
+        <div><strong>Leader:</strong> ${escapeHtml(contactPerson)}</div>
         <div><strong>WhatsApp:</strong> ${escapeHtml(whatsappNumber)}</div>
         <div><strong>Location:</strong> ${escapeHtml(cityArea)}</div>
-        <div><strong>Category:</strong> ${escapeHtml(industrySegment)}</div>
-        <div style="color: #FCD34D; font-weight: 600; margin-top: 0.5rem;">🎉 Deliverables: Free Digital Card + Free LinkedIn Setup</div>
+        <div><strong>Specialization:</strong> ${escapeHtml(industrySegment)}</div>
+        <div style="color: #15803D; font-weight: 800; margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px dashed #E2E8F0;">
+          🎉 Festive Deliverable: 100% Free Smart Digital Business Card
+        </div>
       `;
     }
 
-    // Prepare WhatsApp Message Link
+    // Prepare WhatsApp Message Link (+91 976 291 0165 from brochure Slide 5)
     const waText = encodeURIComponent(
-      `Hello MarTech Panthers team! 🪔\n\nI just claimed the Ganesh Chaturthi Free Festive Offer for my factory.\n\n*Factory:* ${companyName}\n*Contact:* ${contactPerson}\n*Phone:* ${whatsappNumber}\n*Location:* ${cityArea}\n*Industry:* ${industrySegment}\n\nPlease help us start the setup!`
+      `Hello MarTech Panthers team! 🪔\n\nI want to claim the Free Smart Digital Business Card Ganesh Festive Season Offer for my Machine Tools company.\n\n*Company:* ${companyName}\n*Leader:* ${contactPerson}\n*Phone:* ${whatsappNumber}\n*Location:* ${cityArea}\n*Specialization:* ${industrySegment}\n\nPlease help us start our setup!`
     );
 
-    const waUrl = `https://wa.me/919820000000?text=${waText}`;
+    const waUrl = `https://wa.me/919762910165?text=${waText}`;
     if (modalWhatsAppDirectBtn) {
       modalWhatsAppDirectBtn.href = waUrl;
     }
@@ -307,7 +261,6 @@ function initClaimForm() {
       successModal.classList.add('active');
     }
 
-    // Optional celebratory vibration / log
     if (navigator.vibrate) {
       navigator.vibrate([100, 50, 100]);
     }
@@ -338,7 +291,7 @@ function escapeHtml(text) {
 }
 
 /* --------------------------------------------------------------------------
-   5. Smooth Scroll Navigation
+   3. Smooth Scroll Navigation
    -------------------------------------------------------------------------- */
 function initSmoothScroll() {
   const links = document.querySelectorAll('a[href^="#"]');
