@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPhoneSimulators();
   initClaimForm();
   initSmoothScroll();
+  initTestimonialSlider();
 });
 
 /* --------------------------------------------------------------------------
@@ -310,3 +311,169 @@ function initSmoothScroll() {
     });
   });
 }
+
+/* --------------------------------------------------------------------------
+   4. Interactive Testimonials Sliding Window
+   -------------------------------------------------------------------------- */
+function initTestimonialSlider() {
+  const track = document.getElementById('testimonialTrack');
+  const prevBtn = document.getElementById('prevTestimonialBtn');
+  const nextBtn = document.getElementById('nextTestimonialBtn');
+  const dotsContainer = document.getElementById('testimonialDots');
+  const sliderBox = document.getElementById('testimonialSliderBox');
+
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const cards = Array.from(track.children);
+  const totalCards = cards.length;
+  let currentIndex = 0;
+  let autoSlideTimer = null;
+
+  function getVisibleCardsCount() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  function getMaxIndex() {
+    const visibleCount = getVisibleCardsCount();
+    return Math.max(0, totalCards - visibleCount);
+  }
+
+  function updateDots() {
+    if (!dotsContainer) return;
+    const maxIndex = getMaxIndex();
+    dotsContainer.innerHTML = '';
+
+    for (let i = 0; i <= maxIndex; i++) {
+      const dot = document.createElement('button');
+      dot.className = `slider-dot ${i === currentIndex ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Slide ${i + 1}`);
+      dot.addEventListener('click', () => {
+        goToSlide(i);
+        restartAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateSliderPosition() {
+    const maxIndex = getMaxIndex();
+    if (currentIndex > maxIndex) {
+      currentIndex = maxIndex;
+    }
+
+    if (cards[0]) {
+      const cardStyle = window.getComputedStyle(track);
+      const gap = parseFloat(cardStyle.gap) || 28;
+      const cardWidth = cards[0].offsetWidth;
+      const offset = currentIndex * (cardWidth + gap);
+      track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    // Update buttons
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex;
+
+    // Update dots
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.slider-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentIndex);
+      });
+    }
+  }
+
+  function goToSlide(index) {
+    const maxIndex = getMaxIndex();
+    currentIndex = Math.max(0, Math.min(index, maxIndex));
+    updateSliderPosition();
+  }
+
+  function nextSlide() {
+    const maxIndex = getMaxIndex();
+    if (currentIndex >= maxIndex) {
+      currentIndex = 0; // Wrap around
+    } else {
+      currentIndex++;
+    }
+    updateSliderPosition();
+  }
+
+  function prevSlide() {
+    const maxIndex = getMaxIndex();
+    if (currentIndex <= 0) {
+      currentIndex = maxIndex; // Wrap around
+    } else {
+      currentIndex--;
+    }
+    updateSliderPosition();
+  }
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    restartAutoSlide();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    restartAutoSlide();
+  });
+
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideTimer = setInterval(() => {
+      nextSlide();
+    }, 4500);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlideTimer) {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = null;
+    }
+  }
+
+  function restartAutoSlide() {
+    stopAutoSlide();
+    startAutoSlide();
+  }
+
+  if (sliderBox) {
+    sliderBox.addEventListener('mouseenter', stopAutoSlide);
+    sliderBox.addEventListener('mouseleave', startAutoSlide);
+  }
+
+  // Touch Swipe Support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoSlide();
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    startAutoSlide();
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    updateDots();
+    updateSliderPosition();
+  });
+
+  // Initial Setup
+  updateDots();
+  updateSliderPosition();
+  startAutoSlide();
+}
+

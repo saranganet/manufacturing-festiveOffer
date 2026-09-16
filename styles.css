@@ -2623,10 +2623,257 @@ button, input, select, textarea {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
 }
 
+/* 5. Trusted Logos Showcase Box (Matching User Slide) */
+.trusted-logos-showcase-box {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.trusted-headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.trusted-headline .headline-bar {
+  flex: 1;
+  max-width: 140px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #CBD5E1);
+}
+
+.trusted-headline .headline-bar:last-child {
+  background: linear-gradient(90deg, #CBD5E1, transparent);
+}
+
+.trusted-headline h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #02021E;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.trusted-logos-img-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trusted-logos-img {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.trusted-logos-img:hover {
+  transform: scale(1.015);
+}
+
+/* ==========================================================================
+   6. Testimonials Sliding Window ("What our clients say about us..")
+   ========================================================================== */
+.testimonials-section {
+  background: #F4F2FA;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #EAE6F4;
+  border-bottom: 1px solid #EAE6F4;
+}
+
+.testimonials-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3.5rem;
+}
+
+.testimonials-title {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #1A1A4B;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.testimonials-slider-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.testimonials-window {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: 0.5rem 0.25rem 1.5rem;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 1.75rem;
+  transition: transform 0.45s cubic-bezier(0.2, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.testimonial-card {
+  flex: 0 0 calc((100% - 2 * 1.75rem) / 3);
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(26, 26, 75, 0.05);
+  border: 1.5px solid #EDE8F7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 290px;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(26, 26, 75, 0.1);
+  border-color: #D6CCEE;
+}
+
+.testimonial-user-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #EDE8F7;
+  background: #F8FAFC;
+}
+
+.testimonial-avatar.avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.testimonial-info h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1A1A4B;
+  margin-bottom: 0.2rem;
+  line-height: 1.25;
+}
+
+.testimonial-info .testimonial-role {
+  font-size: 0.825rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.testimonial-quote {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #334155;
+  font-style: normal;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 0.25rem;
+  color: #F59E0B;
+  font-size: 0.95rem;
+}
+
+.testimonials-nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.slider-arrow-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid #D6CCEE;
+  color: #1A1A4B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(26, 26, 75, 0.06);
+  transition: all 0.2s ease;
+}
+
+.slider-arrow-btn:hover:not(:disabled) {
+  background: #1A1A4B;
+  color: #FFFFFF;
+  border-color: #1A1A4B;
+  transform: scale(1.06);
+}
+
+.slider-arrow-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+  padding: 0;
+}
+
+.slider-dot.active {
+  width: 28px;
+  border-radius: 6px;
+  background: #16A34A;
+}
+
 /* ==========================================================================
    Responsive Adaptations (Placed cleanly at bottom)
    ========================================================================== */
 @media (max-width: 1024px) {
+  .testimonial-card {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+  }
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -2736,6 +2983,15 @@ button, input, select, textarea {
 
   .excellence-text {
     font-size: 1.25rem;
+  }
+
+  .testimonials-title {
+    font-size: 2.15rem;
+  }
+
+  .testimonial-card {
+    flex: 0 0 100%;
+    padding: 2rem 1.5rem;
   }
 }
 
