@@ -592,41 +592,45 @@ button, input, select, textarea {
 /* Hero Visual / Interactive Teaser */
 .hero-visual-col {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Floating Badges (Light Theme) */
+/* Feature Callout Badges (Cleanly framing the phone mockup) */
 .floating-tag {
-  position: absolute;
-  z-index: 20;
   background: #FFFFFF;
-  padding: 0.75rem 1.15rem;
+  padding: 0.65rem 1.15rem;
   border-radius: var(--radius-md);
-  border: 1px solid #E2E8F0;
-  box-shadow: var(--shadow-lg);
+  border: 1.5px solid #E2E8F0;
+  box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  animation: floatSubtle 4s ease-in-out infinite alternate;
+  z-index: 10;
+  transition: var(--transition-fast);
+}
+
+.floating-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .floating-tag.tag-top {
-  top: -15px;
-  right: -10px;
+  align-self: flex-end;
   border-color: #FCD34D;
   background: #FFFDF8;
+  margin-bottom: -0.25rem;
+  margin-right: 0.5rem;
 }
 
 .floating-tag.tag-bottom {
-  bottom: 25px;
-  left: -20px;
+  align-self: flex-start;
   border-color: #86EFAC;
   background: #F0FDF4;
-  animation-delay: -2s;
-}
-
-@keyframes floatSubtle {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
+  margin-top: -0.25rem;
+  margin-left: 0.5rem;
 }
 
 .tag-icon-circle {
@@ -733,8 +737,8 @@ button, input, select, textarea {
 }
 
 .card-avatar {
-  width: 58px;
-  height: 58px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   border: 3px solid #FFFFFF;
   background: #02021E;
@@ -745,6 +749,54 @@ button, input, select, textarea {
   font-weight: 800;
   font-size: 1.25rem;
   box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.card-avatar .verified-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background: #16A34A;
+  color: #FFFFFF;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 900;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card-get-started-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+  color: #FFFFFF;
+  font-size: 0.775rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.85rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+  transition: var(--transition-fast);
+}
+
+.card-get-started-btn:hover {
+  filter: brightness(1.08);
 }
 
 .card-company-logo {
@@ -762,7 +814,7 @@ button, input, select, textarea {
 
 .card-identity {
   margin-top: 0.85rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .card-identity h5 {

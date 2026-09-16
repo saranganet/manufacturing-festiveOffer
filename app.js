@@ -51,7 +51,7 @@ function initPhoneSimulators() {
 
   if (simCatalogBtn) {
     simCatalogBtn.addEventListener('click', () => {
-      showHeroToast('📄 Machine Tools Specifications PDF Downloaded');
+      showHeroToast('🌐 Visiting: https://martechpanthers.com/MayankD/');
     });
   }
 
@@ -142,14 +142,14 @@ function initPhoneSimulators() {
   if (demoCatalogBtn) {
     demoCatalogBtn.addEventListener('click', () => {
       setDemoActiveBtn(demoCatalogBtn);
-      demoBoxTitle.textContent = 'Machine Tools Catalog';
-      demoBoxSub.textContent = '2026 Edition';
+      demoBoxTitle.textContent = 'Web & Digital Card Link';
+      demoBoxSub.textContent = 'martechpanthers.com';
       demoBoxList.innerHTML = `
-        <li><span>📄</span> <strong>Specs PDF:</strong> 16-Page Machine Tools Catalog</li>
-        <li><span>⚙️</span> <strong>Machinery:</strong> 5-Axis VMC, CNC Lathes, Wire EDM</li>
-        <li><span>🔬</span> <strong>Quality Lab:</strong> Zeiss CMM & Micron Tolerances</li>
+        <li><span>🌐</span> <strong>Website:</strong> www.MarTechPanthers.com</li>
+        <li><span>🔗</span> <strong>Live Digital Card:</strong> martechpanthers.com/MayankD/</li>
+        <li><span>🚀</span> <strong>Get Started:</strong> martechpanthers.com/getquote</li>
       `;
-      showDemoToast('📄 Factory catalog loaded!');
+      showDemoToast('🌐 MarTech Panthers live card link loaded!');
     });
   }
 
