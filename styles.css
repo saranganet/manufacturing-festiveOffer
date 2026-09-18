@@ -1811,6 +1811,173 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   HubSpot Embedded Form Custom Theme & Loader
+   ========================================================================== */
+.hubspot-form-container {
+  min-height: 280px;
+  position: relative;
+  width: 100%;
+}
+
+.hs-form-frame,
+.hs-form-frame iframe {
+  width: 100% !important;
+  border: none !important;
+  display: block;
+}
+
+
+.hubspot-loading-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  gap: 1rem;
+  color: #64748B;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hubspot-spinner {
+  width: 38px;
+  height: 38px;
+  border: 3.5px solid #FDE68A;
+  border-top-color: #E65100;
+  border-radius: 50%;
+  animation: hsSpin 0.8s linear infinite;
+}
+
+@keyframes hsSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* HubSpot v2 Form Injected Element Overrides */
+.hubspot-form-container .hs-form,
+.hubspot-form-container form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.15rem !important;
+  width: 100% !important;
+  font-family: var(--font-body) !important;
+}
+
+.hubspot-form-container .hs-form-row {
+  display: flex !important;
+  gap: 1rem !important;
+  width: 100% !important;
+}
+
+.hubspot-form-container .hs-form-field {
+  flex: 1 1 100% !important;
+  margin-bottom: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.hubspot-form-container .hs-form-field > label {
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  color: #1E293B !important;
+  margin-bottom: 0.4rem !important;
+  display: block !important;
+}
+
+.hubspot-form-container .hs-form-required {
+  color: #DC2626 !important;
+  margin-left: 2px !important;
+}
+
+.hubspot-form-container .hs-input,
+.hubspot-form-container input[type="text"],
+.hubspot-form-container input[type="email"],
+.hubspot-form-container input[type="tel"],
+.hubspot-form-container select,
+.hubspot-form-container textarea {
+  width: 100% !important;
+  padding: 0.85rem 1rem !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1.5px solid #CBD5E1 !important;
+  font-size: 0.95rem !important;
+  color: #0F172A !important;
+  background: #FFFFFF !important;
+  transition: var(--transition-fast) !important;
+  box-sizing: border-box !important;
+  font-family: var(--font-body) !important;
+}
+
+.hubspot-form-container .hs-input:focus,
+.hubspot-form-container input:focus,
+.hubspot-form-container select:focus,
+.hubspot-form-container textarea:focus {
+  outline: none !important;
+  border-color: #16A34A !important;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2) !important;
+}
+
+.hubspot-form-container .hs-button,
+.hubspot-form-container input[type="submit"] {
+  width: 100% !important;
+  font-family: var(--font-body) !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  background: linear-gradient(135deg, #FF6B00 0%, #E65100 100%) !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 1rem 2rem !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 16px rgba(230, 81, 0, 0.35) !important;
+  transition: all 0.25s ease !important;
+  margin-top: 0.5rem !important;
+  letter-spacing: 0.01em !important;
+  text-align: center !important;
+}
+
+.hubspot-form-container .hs-button:hover,
+.hubspot-form-container input[type="submit"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(230, 81, 0, 0.45) !important;
+  filter: brightness(1.05) !important;
+}
+
+.hubspot-form-container .hs-error-msgs {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0.35rem 0 0 !important;
+}
+
+.hubspot-form-container .hs-error-msgs li label {
+  color: #DC2626 !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+}
+
+.hubspot-form-container .submitted-message {
+  background: #F0FDF4 !important;
+  border: 1.5px solid #BBF7D0 !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.75rem !important;
+  text-align: center !important;
+  color: #166534 !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+}
+
+@media (max-width: 768px) {
+  .hubspot-form-container .hs-form-row {
+    flex-direction: column !important;
+    gap: 1.15rem !important;
+  }
+}
+
+
+
+/* ==========================================================================
    FAQ Section (Light Theme)
    ========================================================================== */
 .faq-grid {
